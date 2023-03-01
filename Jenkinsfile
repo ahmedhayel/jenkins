@@ -1,8 +1,5 @@
 pipeline {
   agent any
-  tools{
-    maven 'maven-3.6.3'
-  }
   stages {
     stage('Checkout Step') {
       steps {
@@ -12,7 +9,7 @@ pipeline {
 
     stage('Build Step') {
       steps {
-        sh 'mvn clean install'
+        sh 'mvn clean package'
       }
     }
 
@@ -46,5 +43,8 @@ pipeline {
       }
     }
 
+  }
+  tools {
+    maven 'maven-3.6.3'
   }
 }
